@@ -1,0 +1,26 @@
+# ==============================================================================
+# docker-compose.yml
+# Description: One-command way to build and run the API container.
+# Usage: docker compose up --build
+# ==============================================================================
+
+version: "3.9"
+
+services:
+  iris-api:
+    build: .
+    container_name: iris-mlflow-api
+    ports:
+      - "8000:8000"       # FastAPI accessible at http://localhost:8000
+    environment:
+      - MLFLOW_TRACKING_URI=mlruns
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # Optional: mount mlruns live (comment out if you want fully frozen image)
+      - ./mlruns:/app/mlruns
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
