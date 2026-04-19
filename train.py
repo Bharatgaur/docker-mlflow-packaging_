@@ -1,5 +1,5 @@
 # ==============================================================================
-# Package and Reproduce an AI Model with Docker & MLflow
+# | Package and Reproduce an AI Model with Docker & MLflow
 # File: train.py
 # Description: Trains a RandomForest classifier on Iris dataset, tracks with MLflow,
 #              and saves the model in MLflow format (ready for Docker deployment).
@@ -20,11 +20,13 @@ import json
 # STEP 1: Configure MLflow Tracking
 # ─────────────────────────────────────────────
 # MLflow will save all runs in a local folder called "mlruns"
-mlflow.set_tracking_uri("mlruns")          # local folder-based tracking
+import os
+mlflow.set_tracking_uri(os.path.join(os.getcwd(), "mlruns"))          # local folder-based tracking
+mlflow.set_tracking_uri("file:./mlruns")
 mlflow.set_experiment("iris-classification")  # experiment name in UI
 
 print("=" * 60)
-print("  RTAI-242P | Practical 7: MLflow + Docker Demo")
+print("| MLflow + Docker Demo")
 print("=" * 60)
 
 # ─────────────────────────────────────────────

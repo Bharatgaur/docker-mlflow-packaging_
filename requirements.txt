@@ -1,5 +1,5 @@
 # ==============================================================
-# RTAI-242P | Practical 7 — Python Requirements
+# | Python Requirements
 # Install with:  pip install -r requirements.txt
 # ==============================================================
 
@@ -22,3 +22,5 @@ ipykernel==6.29.3
 
 # Utilities
 requests==2.31.0
+
+setuptools==69.5.1

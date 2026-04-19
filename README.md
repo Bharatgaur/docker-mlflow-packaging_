@@ -1,11 +1,10 @@
-# docker-mlflow-packaging
-## Package and Reproduce an AI Model with Docker & MLflow
+# Package and Reproduce an AI Model with Docker & MLflow
 
-> Model Packaging, MLflow Tracking, Docker Containerization
+> **Model Packaging, MLflow Tracking, Docker Containerization**
 
 ---
 
-## Table of Contents
+## 📋 Table of Contents
 
 1. [Overview](#overview)
 2. [Project Structure](#project-structure)
@@ -69,11 +68,11 @@ docker-mlflow-packaging/
 ```bash
 # Option A: From environment.yml (recommended)
 conda env create -f environment.yml
-conda activate rtai242p-p7
+conda activate docker-mlflow-packaging
 
 # Option B: Manual setup
-conda create -n rtai242p-p7 python=3.10 -y
-conda activate rtai242p-p7
+conda create -n docker-mlflow-packaging python=3.10 -y
+conda activate docker-mlflow-packaging
 pip install -r requirements.txt
 ```
 
@@ -189,7 +188,7 @@ Base URL: `http://localhost:8000`
 ### train.py output
 ```
 ============================================================
- MLflow + Docker Demo
+  MLflow + Docker Demo
 ============================================================
 [1/5] Loading Iris Dataset...
 [2/5] Data Split → Train: 120 | Test: 30
@@ -224,7 +223,7 @@ All tests complete!
 
 | Error | Cause | Fix |
 |-------|-------|-----|
-| `ModuleNotFoundError: mlflow` | Env not activated | `conda activate rtai242p-p7` |
+| `ModuleNotFoundError: mlflow` | Env not activated | `conda activate docker-mlflow-packaging` |
 | `Model not loaded` in API | train.py not run yet | Run `python train.py` first |
 | Port 8000 already in use | Another process using port | `taskkill /F /IM python.exe` or change port |
 | `docker: command not found` | Docker Desktop not started | Open Docker Desktop app |
@@ -249,3 +248,4 @@ All tests complete!
 ```
 
 ---
+

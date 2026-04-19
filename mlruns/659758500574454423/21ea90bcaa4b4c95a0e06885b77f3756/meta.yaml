@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Projects/AI_lab7_docker-mlflow-packaging/mlruns/659758500574454423/21ea90bcaa4b4c95a0e06885b77f3756/artifacts
+end_time: 1776582381722
+entry_point_name: ''
+experiment_id: '659758500574454423'
+lifecycle_stage: active
+run_id: 21ea90bcaa4b4c95a0e06885b77f3756
+run_name: rf-iris-v1
+run_uuid: 21ea90bcaa4b4c95a0e06885b77f3756
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1776582331896
+status: 3
+tags: []
+user_id: bgaur

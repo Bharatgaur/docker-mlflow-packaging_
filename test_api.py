@@ -77,5 +77,5 @@ print(f"  Status Code : {resp.status_code}")
 print(f"  Response    : {json.dumps(resp.json(), indent=4)}")
 
 print("\n" + "=" * 55)
-print(" All tests complete!")
+print("  All tests complete!")
 print("=" * 55 + "\n")

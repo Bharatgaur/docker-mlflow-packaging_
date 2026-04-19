@@ -18,7 +18,7 @@ import os
 app = FastAPI(
     title="Iris Classifier API",
     description=(
-        "RTAI-242P Practical 7 — AI Model packaged with MLflow & Docker\n\n"
+        "Practical 7 — AI Model packaged with MLflow & Docker\n\n"
         "Send flower measurements and get the predicted Iris species."
     ),
     version="1.0.0"
@@ -33,22 +33,31 @@ CLASS_NAMES = ["setosa", "versicolor", "virginica"]
 MLFLOW_TRACKING_URI = os.getenv("MLFLOW_TRACKING_URI", "mlruns")
 mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
 
-# Try loading the registered model; fall back to latest run
-try:
-    model_uri = "models:/IrisClassifier/latest"
-    model = mlflow.sklearn.load_model(model_uri)
-    print(f"Model loaded from registry: {model_uri}")
-except Exception:
-    # Fallback: load from run_id.txt written during training
-    try:
-        with open("run_id.txt") as f:
-            run_id = f.read().strip()
-        model_uri = f"runs:/{run_id}/iris-model"
-        model = mlflow.sklearn.load_model(model_uri)
-        print(f"Model loaded from run: {model_uri}")
-    except Exception as e:
-        print(f"Could not load model: {e}")
-        model = None
+# ── Load model at startup ──────────────────────────
+import glob
+
+def find_and_load_model():
+    """Find the model folder inside mlruns and load it directly."""
+    # Search for the model folder regardless of run ID
+    pattern = os.path.join("mlruns", "**", "iris-model", "MLmodel")
+    matches = glob.glob(pattern, recursive=True)
+    
+    if not matches:
+        print(" No model found. Run train.py first.")
+        return None
+    
+    # Take the most recent match
+    model_dir = os.path.dirname(matches[-1])
+    print(f"Found model at: {model_dir}")
+    
+    loaded = mlflow.sklearn.load_model(model_dir)
+    print("Model loaded successfully!")
+    return loaded
+
+@app.on_event("startup")
+def load_model_on_startup():
+    global model
+    model = find_and_load_model()
 
 # ─────────────────────────────────────────────
 # Request / Response Schemas
@@ -74,7 +83,7 @@ def root():
     """Simple health-check endpoint."""
     return {
         "status": "running",
-        "service": "Iris Classifier — RTAI-242P Practical 7",
+        "service": "Iris Classifier — Practical 7",
         "model_loaded": model is not None,
         "docs": "/docs"
     }

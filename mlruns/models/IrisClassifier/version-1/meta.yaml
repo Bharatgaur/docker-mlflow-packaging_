@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1776582381630
+current_stage: None
+description: null
+last_updated_timestamp: 1776582381630
+name: IrisClassifier
+run_id: 21ea90bcaa4b4c95a0e06885b77f3756
+run_link: null
+source: file:///D:/Projects/AI_lab7_docker-mlflow-packaging/mlruns/659758500574454423/21ea90bcaa4b4c95a0e06885b77f3756/artifacts/iris-model
+status: READY
+status_message: null
+storage_location: file:///D:/Projects/AI_lab7_docker-mlflow-packaging/mlruns/659758500574454423/21ea90bcaa4b4c95a0e06885b77f3756/artifacts/iris-model
+user_id: null
+version: 1
