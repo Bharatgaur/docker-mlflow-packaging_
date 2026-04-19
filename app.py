@@ -18,7 +18,7 @@ import os
 app = FastAPI(
     title="Iris Classifier API",
     description=(
-        "Practical 7 — AI Model packaged with MLflow & Docker\n\n"
+        "AI Model packaged with MLflow & Docker\n\n"
         "Send flower measurements and get the predicted Iris species."
     ),
     version="1.0.0"

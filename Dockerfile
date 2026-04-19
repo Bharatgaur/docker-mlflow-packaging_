@@ -8,7 +8,7 @@
 FROM python:3.10-slim
 
 # ── Metadata ──────────────────────────────────────────────────────────────────
-LABEL maintainer="RTAI-242P Lab"
+LABEL maintainer="Docker MLflow"
 LABEL description="Iris Classifier — MLflow + FastAPI packaged with Docker"
 
 # ── Set working directory ─────────────────────────────────────────────────────

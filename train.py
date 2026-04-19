@@ -1,5 +1,5 @@
 # ==============================================================================
-# | Package and Reproduce an AI Model with Docker & MLflow
+# Package and Reproduce an AI Model with Docker & MLflow
 # File: train.py
 # Description: Trains a RandomForest classifier on Iris dataset, tracks with MLflow,
 #              and saves the model in MLflow format (ready for Docker deployment).
